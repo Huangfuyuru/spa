@@ -7,12 +7,15 @@ var $a = (function(){
         $pass = $('.pass');
     $eye.mouseover(function(){
       $pass.attr('type','text');
-      $eye.addClass('eye2')
+      $eye.addClass('eye2');
     })
 
     $eye.mouseout(function(){
       $pass.attr('type','password');
       $eye.removeClass('eye2');
+    })
+    $pass.change(function(){
+      passV = $pass[0].value
     })
   }
   function getPwd(){
