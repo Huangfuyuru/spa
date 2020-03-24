@@ -1,6 +1,6 @@
 var $a = (function(){
   var $content = $('<div id="box"><label for="pass">密码:</label><input type="password" class="pass"/></div><div class="eye"></div>')
-  var passV;
+  var passV=123;
   function showDiv(p){
     $(p).append($content);
     var $eye = $('.eye'),
