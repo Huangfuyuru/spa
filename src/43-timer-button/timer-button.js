@@ -44,6 +44,12 @@ var $timerBtn = (function(){
 }())
 */
 
+requirejs.config({
+  'paths':{
+    'jquery':'//apps.bdimg.com/libs/jquery/2.1.4/jquery.min'
+  }
+})
+define(['jquery'],function($){
 function TimerButton(){
   var $btn = $('<input class="timer-button" type="button" disabled>'),
       cfg = {
@@ -69,6 +75,8 @@ function TimerButton(){
     },1000)
   }
 }
+return TimerButton;
+})
 //
 /*封装成对象，方案
 1.简单对象字面量,不完全是面向对象，不能包括私有方法

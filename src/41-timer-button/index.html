@@ -13,7 +13,16 @@
   <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="./timer-button.js"></script>
   <script>
+    /*
     $(function(){
+        $timerBtn.show({
+          container:'#main',
+          time:5,
+          title:'ok',
+          onClick:function(){
+            console.log('同意了哦')
+          }
+          })
       var $btnAdd = $('#add');
       $btnAdd.click(function(){
         $timerBtn.show({
@@ -26,6 +35,21 @@
           });
       })
     })
+    */
+  $(function(){
+    var $btnAdd = $('#add');
+    $btnAdd.click(function(){
+      var tb = new TimerButton();
+      tb.show({
+        container:'#main',
+        time:10,
+        title:'同意了',
+        onClick:function(){
+          console.log('同意了')
+        }
+      })
+      })
+  })
   </script>
 </body>
 </html>
