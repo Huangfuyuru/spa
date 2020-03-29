@@ -15,6 +15,7 @@ var m = function(){
     '<li index="3">'+'4'+'</li>'+
     '<li index="4">'+'5'+'</li>'+
     '</ul>'
+    
     function show(container){
         var cont = document.getElementById(container);
         cont.innerHTML = all;
