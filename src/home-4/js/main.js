@@ -1,4 +1,5 @@
 var m = function(){
+
     var all = ''+'<div class="slider" id="slider">'+
     '<div class="slide" index="0">'+'<img src="img/b1.png" alt="">'+'</div>'+
     '<div class="slide" index="1">'+'<img src="img/b2.png" alt="">'+'</div>'+
