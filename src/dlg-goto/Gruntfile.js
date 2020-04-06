@@ -69,6 +69,14 @@ module.exports = function(grunt){
   
     clean:{
       end:['dist/bundle.css','dist/bundle.js','.tmp']
+    },
+
+    usemin:{
+      options:{
+        assetsDirs:['dist/']
+      },
+      html:'dist/index.html'
+
     }
 
   });

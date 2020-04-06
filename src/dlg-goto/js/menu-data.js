@@ -1,3 +1,5 @@
+/*global $dlgFont*/
+/*global np*/
 np.menuData = [
   { 
     title: '文件(F)',
