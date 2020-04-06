@@ -1,13 +1,3 @@
-/* global np,
-          $dlgAbout,
-          $menubar,
-          $statusBar,
-          $editor,
-          $dlgFont,
-          $dlgSearch,
-          $dlgReplace,
-          $dlgGoto: true */
-/* eslint no-console: ["error", { allow: ["log"]  }] */
 np.menuData = [
     { 
       title: '文件(F)',

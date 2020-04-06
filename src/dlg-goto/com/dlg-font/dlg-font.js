@@ -1,7 +1,4 @@
-/* exported $dlgFont */
-/* global comList: true */
-/* eslint no-console: ["error", { allow: ["log"]   }] */
-var $dlgFont = (function() {
+var $dlgFont = (function(){
   var $dlg = $(''
       + '<div class="notepad-dlg-mask notepad-dlg-font">'
         + '<div class="dialogbox notepad-dlgbox">'
@@ -43,22 +40,22 @@ var $dlgFont = (function() {
       sizes = ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '26', '28', '36', '48', '72'];
 
   var cfg = {
-    family: 'Arial',
-    style: '常规',
-    size: '16',
-    okHandler: null
+    family:'Arial',
+    style:'常规',
+    size:'16',
+    okHandler:null
   };
 
-  function sample() {
+  function sample(){
     $sample.css({ 'font-family': cfg.family, 'font-size': cfg.size + 'pt' });
 
-    if(cfg.style === '斜体') {
-      $sample.css({'font-style': 'italic'});
+    if(cfg.style === '斜体'){
+      $sample.css({'font-family':'italic'});
       return;
     }
 
-    if(cfg.style === '粗体') {
-      $sample.css({'font-weight': 'bold'});
+    if(cfg.style === '粗体'){
+      $sample.css({'font-weight':'bold'});
       return;
     }
 
@@ -68,32 +65,32 @@ var $dlgFont = (function() {
     }
   }
 
-  function init() {
+  function init(){
     var lstFamily = new comList();
     lstFamily.show({
-      container: '.notepad-dlg-font .font-family',
-      width: '176px',
-      list: fonts,
-      select: fonts.indexOf(cfg.family),
-      isFont: true,
-      selectHandler: function(e) {
+      container:'.notepad-dlg-font .font-family',
+      width:'176px',
+      list:fonts,
+      select:fonts.indexOf(cfg.family),
+      isFont:true,
+      selectHandler:function(e){
         cfg.family = fonts[e];
-        sample();
+        sample()
       }
     });
 
     var lstStyle = new comList();
     lstStyle.show({
-      container: '.notepad-dlg-font .font-style',
-      width: '132px',
-      list: styles,
-      select: styles.indexOf(cfg.style),
-      isFontStyle: true,
-      selectHandler: function(e) {
-        cfg.style = styles[e];
-        sample();
+      container:'.notepad-dlg-font .font-style',
+      width:'132px',
+      list:styles,
+      select:styles.indexOf(cfg.style),
+      isFontStyle:true,
+      selectHandler:function(e){
+        cfg.style = stylese[e];
+        sample()
       }
-    });
+    })
 
     var lstSize = new comList();
     lstSize.show({
@@ -112,29 +109,30 @@ var $dlgFont = (function() {
 
   function destory() { $dlg.remove(); }
 
-  function show(conf) {
-    $.extend(cfg, conf);
+  function show(conf){
+    $.extend(cfg,conf);
 
     $('body').append($dlg);
     init();
-    $dlg.find('.dialogbox').draggable({handle: $titleBar});
+
+    $dlg.find('.dialogbox').draggable({handle:$titleBar});
 
     $btnClose.click(destory);
     $btnCancel.click(destory);
-    $btnOk.click(function() {
+    $btnOk.click(function(){
       cfg.okHandler({
-        family: cfg.family,
-        style: cfg.style,
-        size: cfg.size
+        family:cfg.family,
+        style:cfg.style,
+        size:cfg.size
       });
 
-      destory();
+      destory()
     });
 
-    $dlg.click(function(e) {
+    $dlg.click(function(e){
       e.stopPropagation();
-    });
+    })
   }
+  return {show:show};
 
-  return {show: show};
-}());
+}())

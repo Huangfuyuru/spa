@@ -1,6 +1,6 @@
 var $menubar = (function(){
   var $bar = $('<div class="notepad-menubar"></div>');
-  var menuData,menus=[],avtive=-1;
+  var menuData,menus=[],active=-1;
 
   function createMenuTitle(){
     var $titles = $('<ul class="menu-title"></ul>');
@@ -14,7 +14,7 @@ var $menubar = (function(){
       $title.click(function(e){
         var i = Number(this.dataset.id);
 
-        if(active = -1){
+        if(active === -1){
           menus[i].css({display:'inline-block'});
           active = i;
         }else if(active !== i){
@@ -27,17 +27,18 @@ var $menubar = (function(){
         }
         e.stopPropagation()
       })
+
+      $title.hover(function(){
+        if(active !== -1){
+          var i = Number(this.dataset.id);
+  
+          menus[active].css({display:'none'});
+          menus[i].css({display:'inline-block'});
+          active = i;
+        }
+      })
+
     }
-
-    $title.hover(function(){
-      if(active !== -1){
-        var i = Number(this.dataset.id);
-
-        menus[active].css({display:'none'});
-        menus[i].css({display:'inline-block'});
-        active = i;
-      }
-    })
 
     $bar.append($titles)
   }
