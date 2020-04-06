@@ -1,3 +1,5 @@
+/*global comList:true*/
+/*exported $dlgFont*/
 var $dlgFont = (function(){
   var $dlg = $(''
       + '<div class="notepad-dlg-mask notepad-dlg-font">'
@@ -75,7 +77,7 @@ var $dlgFont = (function(){
       isFont:true,
       selectHandler:function(e){
         cfg.family = fonts[e];
-        sample()
+        sample();
       }
     });
 
@@ -87,10 +89,10 @@ var $dlgFont = (function(){
       select:styles.indexOf(cfg.style),
       isFontStyle:true,
       selectHandler:function(e){
-        cfg.style = stylese[e];
-        sample()
+        cfg.style = styles[e];
+        sample();
       }
-    })
+    });
 
     var lstSize = new comList();
     lstSize.show({
@@ -126,13 +128,13 @@ var $dlgFont = (function(){
         size:cfg.size
       });
 
-      destory()
+      destory();
     });
 
     $dlg.click(function(e){
       e.stopPropagation();
-    })
+    });
   }
   return {show:show};
 
-}())
+}());

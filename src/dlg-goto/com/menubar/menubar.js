@@ -1,3 +1,4 @@
+/*exported $menubar*/
 var $menubar = (function(){
   var $bar = $('<div class="notepad-menubar"></div>');
   var menuData,menus=[],active=-1;
@@ -25,8 +26,8 @@ var $menubar = (function(){
           menus[active].css({display:'none'});
           active = -1;
         }
-        e.stopPropagation()
-      })
+        e.stopPropagation();
+      });
 
       $title.hover(function(){
         if(active !== -1){
@@ -36,11 +37,11 @@ var $menubar = (function(){
           menus[i].css({display:'inline-block'});
           active = i;
         }
-      })
+      });
 
     }
 
-    $bar.append($titles)
+    $bar.append($titles);
   }
 
 
@@ -78,8 +79,8 @@ var $menubar = (function(){
           var i = this.dataset.x,j =this.dataset.y;
           menus[i].css({display:'none'});
           active=-1;
-          menuData[i].menuItems[j].handler()
-        })
+          menuData[i].menuItems[j].handler();
+        });
       }
 
       $menus.css({
@@ -89,7 +90,7 @@ var $menubar = (function(){
       });
 
       $bar.append($menus);
-      menus.push($menus)
+      menus.push($menus);
     }
   }
 
@@ -108,7 +109,7 @@ var $menubar = (function(){
     if(isEnabled){
       $(menuItem).removeClass('disabled');
     }else{
-      $(menuItem).addClass('disabled')
+      $(menuItem).addClass('disabled');
     }
 
   }
@@ -126,12 +127,12 @@ var $menubar = (function(){
     createMenuTitle();
     createMenus();
 
-    $('body').append($bar)
+    $('body').append($bar);
   }
 
   function show(data){
     menuData = data;
-    init()
+    init();
   }
 
   return {
@@ -139,5 +140,5 @@ var $menubar = (function(){
     checked:checked,
     enabled:enabled,
     hideMenu:hideMenu
-  }
-}())
+  };
+}());

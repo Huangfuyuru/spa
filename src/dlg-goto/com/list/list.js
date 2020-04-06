@@ -1,3 +1,4 @@
+/*exported comList*/
 function comList(){
   var $comList = $(''
     + '<div class="notepad-com-list">'
@@ -20,11 +21,6 @@ function comList(){
     selectHandler:null
   };
 
-  function setFontStyle(item,style){
-    if(style === '斜体'){
-
-    }
-  }
 
   function setFontStyle(item,style){
     if(style === '斜体'){
@@ -52,36 +48,35 @@ function comList(){
       for(i=0;i<cfg.list.length;i++){
         $item = $('<li class="item"></li>');
         $item.css({'font-family':cfg.list[i]});
-        $list.append($item.html(cfg.list[i]))
+        $list.append($item.html(cfg.list[i]));
       }
     }else if(cfg.isFontStyle){
       //字体样式
       for(i=0;i<cfg.list.length;i++){
         $item=$('<li class="item"></li>');
         setFontStyle($item,cfg.list[i]);
-        $item.html(cfg.list[i])
-        $list.append($item)
+        $item.html(cfg.list[i]);
+        $list.append($item);
       }
     }else{
       for(i=0;i<cfg.list.length;i++){
         $item = $('<li class="item"></li>');
         $item.html(cfg.list[i]);
-        $list.append($item)
+        $list.append($item);
       }
     }
     //$items 所有的item
-    $items = $list.find('.item')
+    $items = $list.find('.item');
   }
 
   function setSelect(n){
     $($items[n]).addClass('selected');
     $editor.val(cfg.list[n]);
-    $editor.select()
+    $editor.select();
   }
 
   function init(){
     var $oldList = $(cfg.container).find('.notepad-com-list');
-    console.log('$oldList',$oldList);
     if($oldList.length !== 0) $oldList.remove();
 
     $(cfg.container).append($comList);
@@ -101,7 +96,7 @@ function comList(){
       $($items[cfg.select]).addClass('selected');
       $editor.val(cfg.list[cfg.select]);
       cfg.selectHandler(cfg.select);
-    })
+    });
 
     $editor.keyup(function(){
       var i=0;
@@ -119,6 +114,6 @@ function comList(){
       $($items[cfg.select]).removeClass('selected');
       $($items[i]).addClass('selected');
       cfg.select = i;
-    })
-  }
+    });
+  };
 }

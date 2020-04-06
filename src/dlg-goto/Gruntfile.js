@@ -1,3 +1,4 @@
+/* global module:true*/
 module.exports = function(grunt){
   grunt.initConfig({
     htmlhint:{
@@ -57,7 +58,7 @@ module.exports = function(grunt){
         dest:'dist/bundle.js'
       },
       css:{
-        src:['css/*.css'.'./com/**/*.css'],
+        src:['css/*.css','./com/**/*.css'],
         dest:'dist/bundle.css'
       }
     },
@@ -85,7 +86,7 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-usemin');
 
   grunt.registerTask('lint',['htmlhint','csslint','eslint']);
-  grunt.registerTask('build',['copy','useminPrepare','concat','uglify','cssmin','usemin','htmlmin','clean'])
+  grunt.registerTask('build',['copy','useminPrepare','concat','uglify','cssmin','usemin','htmlmin','clean']);
   
 
-}
+};

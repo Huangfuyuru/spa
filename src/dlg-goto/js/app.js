@@ -1,3 +1,4 @@
+/* global $editor,$menubar,$statusBar*/
 var np = {};
 
 np.config = {'appContainer':'.notepad-app'};
